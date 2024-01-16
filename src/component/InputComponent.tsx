@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Chip from "./Chip"
 import ValueSelector from "./ValueSelector"
 
@@ -7,6 +7,8 @@ const InputComponent = () => {
     const [pickedUsers, setPickedUsers]           = useState<pickedUserType[]>([]);
     const [isSelectorOpen, setIsSelectorOpen]     = useState<boolean>(false);
     const [backspaceCount, setBackspaceCount]     = useState<number>(0);
+
+    const divRef = useRef<any>(null);
 
     function handleSearchValueChange(e: React.ChangeEvent<HTMLInputElement>) {
         setInputSearchValue(e.target.value)
@@ -43,6 +45,21 @@ const InputComponent = () => {
         }
     }
 
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+        //Handle focus lost from the div to close the selector list
+          if (divRef.current && !divRef.current.contains(event.target)) {
+            setIsSelectorOpen(false);
+          }
+        };
+    
+        document.addEventListener('click', handleClickOutside);
+    
+        return () => {
+          document.removeEventListener('click', handleClickOutside);
+        };
+      }, []);
+
     return (
         <div className="w-[80%] flex gap-1 input-container pb-1">
             {
@@ -58,9 +75,9 @@ const InputComponent = () => {
                 )
             }
 
-            <div 
+            <div
+                ref={divRef}
                 className="relative w-full" 
-                onBlur={(e)=>{e.stopPropagation(); setIsSelectorOpen(false)}}
             >
                 <input
                     placeholder="Add new user..."
@@ -69,7 +86,6 @@ const InputComponent = () => {
                     onChange={handleSearchValueChange}
                     onKeyDown={handleInputKeyPress}
                     onFocus={()=>{setIsSelectorOpen(true)}}
-                    onBlur={(e) => handleInputBlur(e)}
                 />
 
                 <ValueSelector
