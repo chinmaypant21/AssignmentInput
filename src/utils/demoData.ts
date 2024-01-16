@@ -7,4 +7,6 @@ export const demoUsers : pickedUserType[] = [
     {id: 6, img: 'https://randomuser.me/api/portraits/men/29.jpg', name: 'Grace Taylor', email: 'grace@example.com'},
     {id: 7, img: 'https://randomuser.me/api/portraits/men/40.jpg', name: 'Eve Josh', email: 'eve@example.com'},
     {id: 8, img: 'https://randomuser.me/api/portraits/men/41.jpg', name: 'Jake Frank', email: 'jake@example.com'},
+    {id: 9, img: 'https://randomuser.me/api/portraits/men/42.jpg', name: 'Mike swift', email: 'mike@example.com'},
+    {id: 10, img: 'https://randomuser.me/api/portraits/men/44.jpg', name: 'Dayn Brook', email: 'dayn@example.com'},
 ]

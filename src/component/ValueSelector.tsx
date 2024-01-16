@@ -24,7 +24,7 @@ const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers
 
     return (
         <div {...props}>
-            <div className='min-w-[15em] flex flex-col gap-1 selector-dropdown bg-white rounded-t-md py-2 max-h-[200px] overflow-y-scroll'>
+            <div className='min-w-[300px] flex flex-col gap-1 selector-dropdown bg-white rounded-t-md py-2 max-h-[200px] overflow-y-scroll'>
             {
                 displayUsers?.map(user =>
                     <div

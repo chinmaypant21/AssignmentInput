@@ -1,10 +1,11 @@
 .input-container{
+    display: flex;
+    flex-wrap: wrap;
     border-bottom: 3px solid rgb(92, 157, 255);
 }
 
 .input-box{
     outline: none !important;
-    width: 100%;
 }
 
 .selector-dropdown{

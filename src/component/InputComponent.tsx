@@ -56,7 +56,7 @@ const InputComponent = () => {
       }, []);
 
     return (
-        <div className="w-[80%] flex gap-1 input-container pb-1">
+        <div className="w-[80%] gap-1 input-container pb-1">
             {
                 pickedUsers.map(user => 
                     <React.Fragment key={user.id}>
@@ -72,7 +72,7 @@ const InputComponent = () => {
 
             <div
                 ref={divRef}
-                className="relative w-full" 
+                className="relative" 
             >
                 <input
                     placeholder="Add new user..."
@@ -81,6 +81,7 @@ const InputComponent = () => {
                     onChange={handleSearchValueChange}
                     onKeyDown={handleInputKeyPress}
                     onFocus={()=>{setIsSelectorOpen(true)}}
+                    onBlur={()=>setBackspaceCount(0)}
                 />
 
                 <ValueSelector
