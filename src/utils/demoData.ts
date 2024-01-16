@@ -1,10 +1,3 @@
-type pickedUserType = {
-    id: number,
-    img: string,
-    name: string,
-    email: string
-}
-
 export const demoUsers : pickedUserType[] = [
     {id: 1, img: 'https://randomuser.me/api/portraits/men/20.jpg', name: 'Ivy Robinson', email: 'ivy@example.com'},
     {id: 2, img: 'https://randomuser.me/api/portraits/men/21.jpg', name: 'Jake Lee', email: 'jake@example.com'},

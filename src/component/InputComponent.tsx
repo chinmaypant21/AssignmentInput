@@ -2,15 +2,8 @@ import React, { useState } from "react"
 import Chip from "./Chip"
 import ValueSelector from "./ValueSelector"
 
-type pickedUserType = {
-    id: number,
-    img: string,
-    name: string,
-    email: string
-}
-
 const InputComponent = () => {
-    const [inputSearchValue, setInputSearchValue] = useState<any>('');
+    const [inputSearchValue, setInputSearchValue] = useState<string>('');
     const [pickedUsers, setPickedUsers]           = useState<pickedUserType[]>([]);
     const [isSelectorOpen, setIsSelectorOpen]     = useState<boolean>(false);
     const [backspaceCount, setBackspaceCount]     = useState<number>(0);
@@ -25,11 +18,14 @@ const InputComponent = () => {
     }
 
     function handleChipRemove(chipId: number){
-        setPickedUsers(prevUsers => (
-            prevUsers.filter(user => user.id !== chipId)
-        ))
-        setIsSelectorOpen(false)
+        return () => {
+            setPickedUsers(prevUsers => (
+                prevUsers.filter(user => user.id !== chipId)
+                ))
+                setIsSelectorOpen(false)
+        }
     }
+
 
     function handleInputKeyPress(e: React.KeyboardEvent<HTMLInputElement>){
         if (e.key === 'Backspace' && inputSearchValue === '') {
@@ -53,8 +49,8 @@ const InputComponent = () => {
                 pickedUsers.map(user => 
                     <React.Fragment key={user.id}>
                         <Chip 
-                            data={user} 
-                            handleChipRemove={()=>handleChipRemove(user.id)}
+                            data={user}
+                            handleChipRemove={handleChipRemove(user.id)}
                             isLastValue={user.id === pickedUsers.at(-1)?.id}
                             isDeleteWarn={(backspaceCount===1)}
                         />
@@ -75,6 +71,7 @@ const InputComponent = () => {
                     onFocus={()=>{setIsSelectorOpen(true)}}
                     onBlur={(e) => handleInputBlur(e)}
                 />
+
                 <ValueSelector
                     isOpen={isSelectorOpen}
                     className='absolute'

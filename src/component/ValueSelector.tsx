@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { demoUsers } from 'utils/demoData';
 
-type pickedUserType = {
-    id: number,
-    img: string,
-    name: string,
-    email: string
-}
-
 const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers, setPickedUsers, isOpen, ...props}) => {
     
     const [displayUsers, setDisplayUsers] = useState<pickedUserType[]>();
