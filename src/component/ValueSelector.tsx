@@ -24,7 +24,7 @@ const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers
 
     return (
         <div {...props}>
-            <div className='min-w-[300px] flex flex-col gap-1 selector-dropdown bg-white rounded-t-md py-2 max-h-[200px] overflow-y-scroll'>
+            <div className='min-w-[320px] flex flex-col gap-1 selector-dropdown bg-white rounded-t-md py-2 max-h-[200px] overflow-y-scroll'>
             {
                 displayUsers?.map(user =>
                     <div
@@ -33,7 +33,7 @@ const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers
                         className='flex gap-3 justify-between cursor-pointer px-2 py-1 hover:bg-[#e7e7e7]'
                     >
                         <img src={user.img} alt='profile' className='profile-img' />
-                        <span className='mr-auto font-semibold' title={user.name}>{user.name}</span>
+                        <span className='mr-auto font-semibold text-nowrap' title={user.name}>{user.name}</span>
                         <span className='text-gray-500'>{user.email}</span>
                     </div>
                 )
