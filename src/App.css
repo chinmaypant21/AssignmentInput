@@ -10,3 +10,16 @@
 .selector-dropdown{
     box-shadow: 0px 2px 4px 3px rgb(0 0 0 / 25%);
 }
+
+.profile-img{
+    height: 30px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+}
+
+.chip-name{
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
