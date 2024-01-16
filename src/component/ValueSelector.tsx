@@ -8,7 +8,6 @@ type pickedUserType = {
     email: string
 }
 
-
 const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers, setPickedUsers, isOpen, ...props}) => {
     
     const [displayUsers, setDisplayUsers] = useState<pickedUserType[]>();
@@ -25,7 +24,7 @@ const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers
 
     function handleValueSelection(user: pickedUserType) {
         setPickedUsers((prevVal: any) => ([...prevVal, user]))
-        // setSearchValue('');
+        setSearchValue('');
     }
         
     if (!isOpen || !displayUsers?.length) return null;
