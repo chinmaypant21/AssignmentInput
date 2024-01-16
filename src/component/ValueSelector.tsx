@@ -40,7 +40,7 @@ const ValueSelector : React.FC<any> = ({searchValue, setSearchValue, pickedUsers
                         onClick={() => handleValueSelection(user)}
                         className='flex gap-3 justify-between cursor-pointer px-2 py-1 hover:bg-[#e7e7e7]'
                     >
-                        <img src={user.img} className='profile-img' />
+                        <img src={user.img} alt='profile' className='profile-img' />
                         <span className='mr-auto font-semibold' title={user.name}>{user.name}</span>
                         <span className='text-gray-500'>{user.email}</span>
                     </div>
