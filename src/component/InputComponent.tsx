@@ -14,11 +14,6 @@ const InputComponent = () => {
         setInputSearchValue(e.target.value)
     }
 
-    function handleInputBlur(e: React.FocusEvent<HTMLInputElement>) {
-        e.stopPropagation();
-        setBackspaceCount(0);
-    }
-
     function handleChipRemove(chipId: number){
         return () => {
             setPickedUsers(prevUsers => (
